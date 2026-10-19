@@ -1,0 +1,2924 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.5 (Python 3.12.10 on win32)" generated="2026-10-17T21:27:07.744451" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="D:\storemate-test\robot\tests">
+<suite id="s1-s1" name="TC-001-view-saved-addresses" source="D:\storemate-test\robot\tests\TC-001-view-saved-addresses.robot">
+<test id="s1-s1-t1" name="TC-001-ตรวจสอบการเข้าสู่หน้าจัดการที่อยู่จัดส่งผ่านเมนูโปรไฟล์สำเร็จ" line="13">
+<kw name="Start Browser Session" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-10-17T21:27:08.647181" level="INFO">{"browser": "chromium", "headless": true, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "D:\\storemate-test\\robot\\results\\browser\\traces\\temp\\480db6e2-29c5-4e13-a023-25a030795b1a"}</msg>
+<msg time="2026-10-17T21:27:08.718777" level="INFO">Starting Browser process C:\Users\nabnoey\AppData\Roaming\Python\Python312\site-packages\Browser\wrapper\index.js using at 127.0.0.1:56747</msg>
+<msg time="2026-10-17T21:27:10.522157" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":true,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"D:\\storemate-test\\robot\\results\\browser\\traces\\temp\\480db6e2-29c5-4e13-a023-25a030795b1a"}</msg>
+<arg>chromium</arg>
+<arg>headless=${HEADLESS}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-10-17T21:27:08.645238" elapsed="1.877429"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2026-10-17T21:27:10.532337" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  }
+}</msg>
+<msg time="2026-10-17T21:27:10.562926" level="INFO">Successfully created context. </msg>
+<msg time="2026-10-17T21:27:10.563924" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1280, 'height': 720}}</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-10-17T21:27:10.524705" elapsed="0.039219"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-10-17T21:27:10.720026" level="INFO">Successfully initialized new page object and opened url: about:blank</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-10-17T21:27:10.563924" elapsed="0.156102"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:27:08.643238" elapsed="2.076788"/>
+</kw>
+<kw name="Login With Account">
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-17T21:27:14.861106" level="INFO">Successfully opened URL https://storemate-final.vercel.app/</msg>
+<arg>${BASE_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2026-10-17T21:27:10.721083" elapsed="4.141019"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:14.863162" level="INFO">Clicks the element 'css=[data-test="login-btn"]'.</msg>
+<arg>css=[data-test="login-btn"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:14.862102" elapsed="0.163847"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-17T21:27:15.029418" level="INFO">Fills the text 'eyejang1@gmail.com' in the given field.</msg>
+<arg>css=[data-test="email"]</arg>
+<arg>${email}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:15.027364" elapsed="0.120649"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-17T21:27:15.150008" level="INFO">Fills the text 'Eyejang1234' in the given field.</msg>
+<arg>css=[data-test="password"]</arg>
+<arg>${password}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:15.149009" elapsed="0.023715"/>
+</kw>
+<if>
+<branch type="IF" condition="'${submit_method}' == 'Enter'">
+<kw name="Press Keys" owner="Browser">
+<arg>css=[data-test="password"]</arg>
+<arg>Enter</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given key combination into element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:15.173722" elapsed="0.045719"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:27:15.172724" elapsed="0.046717"/>
+</branch>
+<branch type="ELSE">
+<kw name="Click" owner="Browser">
+<arg>css=[data-test="btn-submit"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2026-10-17T21:27:15.220481" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-10-17T21:27:15.219441" elapsed="0.001040"/>
+</branch>
+<status status="PASS" start="2026-10-17T21:27:15.172724" elapsed="0.047757"/>
+</if>
+<arg>${LOGIN_EMAIL}</arg>
+<arg>${LOGIN_PASSWORD}</arg>
+<arg>Enter</arg>
+<status status="PASS" start="2026-10-17T21:27:10.721083" elapsed="4.499398"/>
+</kw>
+<kw name="Go To Address Management">
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:15.223639" level="INFO">Clicks the element 'css=[data-test="btn-user-profile"]'.</msg>
+<arg>css=[data-test="btn-user-profile"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:15.222630" elapsed="0.906319"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:16.129960" level="INFO">Clicks the element 'css=[data-test="btn-edit-profile"]'.</msg>
+<arg>css=[data-test="btn-edit-profile"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:16.129960" elapsed="0.068612"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:16.200677" level="INFO">Clicks the element 'role=button[name="จัดการที่อยู่"]'.</msg>
+<arg>role=button[name="จัดการที่อยู่"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:16.199591" elapsed="0.186575"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:27:15.221482" elapsed="1.164684"/>
+</kw>
+<kw name="Get Url" owner="Browser">
+<msg time="2026-10-17T21:27:16.393424" level="INFO">${current_url} = https://storemate-final.vercel.app/address-profile</msg>
+<var>${current_url}</var>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the current URL.</doc>
+<status status="PASS" start="2026-10-17T21:27:16.387189" elapsed="0.007236"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${current_url}</arg>
+<arg>${BASE_URL}address-profile</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2026-10-17T21:27:16.394425" elapsed="0.001004"/>
+</kw>
+<kw name="Close Browser With Failure Screenshot" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Take Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-10-17T21:27:16.398111" elapsed="0.001000"/>
+</kw>
+<kw name="Close Browser" owner="Browser">
+<msg time="2026-10-17T21:27:16.536353" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-17T21:27:16.400111" elapsed="0.136242"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:27:16.396940" elapsed="0.139413"/>
+</kw>
+<doc>ตรวจสอบการแสดงรายการและรายละเอียดที่อยู่จัดส่งที่บันทึกไว้</doc>
+<tag>TC-001</tag>
+<tag>US-ADDR-01</tag>
+<status status="PASS" start="2026-10-17T21:27:08.637187" elapsed="7.900625"/>
+</test>
+<status status="PASS" start="2026-10-17T21:27:07.895420" elapsed="8.661706"/>
+</suite>
+<suite id="s1-s2" name="TC-002-empty-address-list" source="D:\storemate-test\robot\tests\TC-002-empty-address-list.robot">
+<test id="s1-s2-t1" name="TC-002-ตรวจสอบการแสดงข้อความแจ้งเตือนเมื่อไม่มีข้อมูลที่อยู่จัดส่ง" line="13">
+<kw name="Start Browser Session" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-10-17T21:27:16.620565" level="INFO">{"browser": "chromium", "headless": true, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "D:\\storemate-test\\robot\\results\\browser\\traces\\temp\\b181ccc9-01ca-480e-8c8e-48fbfcfced69"}</msg>
+<msg time="2026-10-17T21:27:16.819224" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":true,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"D:\\storemate-test\\robot\\results\\browser\\traces\\temp\\b181ccc9-01ca-480e-8c8e-48fbfcfced69"}</msg>
+<arg>chromium</arg>
+<arg>headless=${HEADLESS}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-10-17T21:27:16.618514" elapsed="0.201713"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2026-10-17T21:27:16.828849" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  }
+}</msg>
+<msg time="2026-10-17T21:27:16.845528" level="INFO">Successfully created context. </msg>
+<msg time="2026-10-17T21:27:16.846540" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1280, 'height': 720}}</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-10-17T21:27:16.821222" elapsed="0.025318"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-10-17T21:27:16.978545" level="INFO">Successfully initialized new page object and opened url: about:blank</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-10-17T21:27:16.847538" elapsed="0.132006"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:27:16.616925" elapsed="0.362619"/>
+</kw>
+<kw name="Login With Account">
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-17T21:27:19.970621" level="INFO">Successfully opened URL https://storemate-final.vercel.app/</msg>
+<arg>${BASE_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2026-10-17T21:27:16.980910" elapsed="2.990748"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:19.972659" level="INFO">Clicks the element 'css=[data-test="login-btn"]'.</msg>
+<arg>css=[data-test="login-btn"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:19.971658" elapsed="0.082940"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-17T21:27:20.055945" level="INFO">Fills the text 'jaturong1@gmail.com' in the given field.</msg>
+<arg>css=[data-test="email"]</arg>
+<arg>${email}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:20.054598" elapsed="0.121256"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-17T21:27:20.176914" level="INFO">Fills the text 'Jaturong1234' in the given field.</msg>
+<arg>css=[data-test="password"]</arg>
+<arg>${password}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:20.176391" elapsed="0.020663"/>
+</kw>
+<if>
+<branch type="IF" condition="'${submit_method}' == 'Enter'">
+<kw name="Press Keys" owner="Browser">
+<arg>css=[data-test="password"]</arg>
+<arg>Enter</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given key combination into element found by ``selector``.</doc>
+<status status="NOT RUN" start="2026-10-17T21:27:20.199164" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-10-17T21:27:20.197603" elapsed="0.001561"/>
+</branch>
+<branch type="ELSE">
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:20.200684" level="INFO">Clicks the element 'css=[data-test="btn-submit"]'.</msg>
+<arg>css=[data-test="btn-submit"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:20.199674" elapsed="0.076309"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:27:20.199674" elapsed="0.076309"/>
+</branch>
+<status status="PASS" start="2026-10-17T21:27:20.197603" elapsed="0.078380"/>
+</if>
+<arg>${LOGIN_EMAIL}</arg>
+<arg>${LOGIN_PASSWORD}</arg>
+<arg>Button</arg>
+<status status="PASS" start="2026-10-17T21:27:16.979544" elapsed="3.296439"/>
+</kw>
+<kw name="Go To Address Management">
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:20.278238" level="INFO">Clicks the element 'css=[data-test="btn-user-profile"]'.</msg>
+<arg>css=[data-test="btn-user-profile"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:20.278238" elapsed="0.888325"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:21.169079" level="INFO">Clicks the element 'css=[data-test="btn-edit-profile"]'.</msg>
+<arg>css=[data-test="btn-edit-profile"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:21.166563" elapsed="0.094502"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:21.262071" level="INFO">Clicks the element 'role=button[name="จัดการที่อยู่"]'.</msg>
+<arg>role=button[name="จัดการที่อยู่"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:21.261065" elapsed="0.192225"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:27:20.276987" elapsed="1.177302"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-17T21:27:21.589117" level="INFO">Waited for Element with selector text="ไม่มีข้อมูลที่อยู่ของคุณ" at state visible</msg>
+<arg>text="ไม่มีข้อมูลที่อยู่ของคุณ"</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-17T21:27:21.454289" elapsed="0.134828"/>
+</kw>
+<kw name="Close Browser With Failure Screenshot" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Take Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-10-17T21:27:21.592294" elapsed="0.001013"/>
+</kw>
+<kw name="Close Browser" owner="Browser">
+<msg time="2026-10-17T21:27:21.713530" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-17T21:27:21.593307" elapsed="0.121234"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:27:21.590582" elapsed="0.123959"/>
+</kw>
+<doc>ตรวจสอบการแสดงผลเมื่อผู้ใช้งานไม่มีที่อยู่จัดส่ง</doc>
+<tag>TC-002</tag>
+<tag>US-ADDR-02</tag>
+<status status="PASS" start="2026-10-17T21:27:16.601346" elapsed="5.113703"/>
+</test>
+<status status="PASS" start="2026-10-17T21:27:16.575991" elapsed="5.149377"/>
+</suite>
+<suite id="s1-s3" name="TC-003-add-additional-address" source="D:\storemate-test\robot\tests\TC-003-add-additional-address.robot">
+<test id="s1-s3-t1" name="TC-003-ตรวจสอบการบันทึกและแสดงที่อยู่ใหม่ร่วมกับที่อยู่เดิม" line="16">
+<kw name="Start Browser Session" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-10-17T21:27:21.769672" level="INFO">{"browser": "chromium", "headless": true, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "D:\\storemate-test\\robot\\results\\browser\\traces\\temp\\f5311f8a-3489-40ac-a658-9fb04449898f"}</msg>
+<msg time="2026-10-17T21:27:21.946770" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":true,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"D:\\storemate-test\\robot\\results\\browser\\traces\\temp\\f5311f8a-3489-40ac-a658-9fb04449898f"}</msg>
+<arg>chromium</arg>
+<arg>headless=${HEADLESS}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-10-17T21:27:21.768153" elapsed="0.179129"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2026-10-17T21:27:21.952879" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  }
+}</msg>
+<msg time="2026-10-17T21:27:21.972804" level="INFO">Successfully created context. </msg>
+<msg time="2026-10-17T21:27:21.972804" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1280, 'height': 720}}</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-10-17T21:27:21.948296" elapsed="0.024508"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-10-17T21:27:22.134335" level="INFO">Successfully initialized new page object and opened url: about:blank</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-10-17T21:27:21.973815" elapsed="0.160520"/>
+</kw>
+<kw name="Set Retry Assertions For" owner="Browser">
+<arg>10s</arg>
+<tag>Config</tag>
+<tag>Setter</tag>
+<doc>Sets the timeout used in retrying assertions when they fail.</doc>
+<status status="PASS" start="2026-10-17T21:27:22.134335" elapsed="0.002531"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:27:21.767065" elapsed="0.369801"/>
+</kw>
+<kw name="Login With Account">
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-17T21:27:25.133067" level="INFO">Successfully opened URL https://storemate-final.vercel.app/</msg>
+<arg>${BASE_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2026-10-17T21:27:22.139376" elapsed="2.994709"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:25.135084" level="INFO">Clicks the element 'css=[data-test="login-btn"]'.</msg>
+<arg>css=[data-test="login-btn"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:25.134085" elapsed="0.106775"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-17T21:27:25.241856" level="INFO">Fills the text 'boom1@gmail.com' in the given field.</msg>
+<arg>css=[data-test="email"]</arg>
+<arg>${email}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:25.240860" elapsed="0.137484"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-17T21:27:25.379361" level="INFO">Fills the text 'Boom1234' in the given field.</msg>
+<arg>css=[data-test="password"]</arg>
+<arg>${password}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:25.378344" elapsed="0.020167"/>
+</kw>
+<if>
+<branch type="IF" condition="'${submit_method}' == 'Enter'">
+<kw name="Press Keys" owner="Browser">
+<arg>css=[data-test="password"]</arg>
+<arg>Enter</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given key combination into element found by ``selector``.</doc>
+<status status="NOT RUN" start="2026-10-17T21:27:25.399018" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-10-17T21:27:25.398511" elapsed="0.000507"/>
+</branch>
+<branch type="ELSE">
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:25.401024" level="INFO">Clicks the element 'css=[data-test="btn-submit"]'.</msg>
+<arg>css=[data-test="btn-submit"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:25.400025" elapsed="0.077670"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:27:25.399018" elapsed="0.079187"/>
+</branch>
+<status status="PASS" start="2026-10-17T21:27:25.398511" elapsed="0.079694"/>
+</if>
+<arg>${LOGIN_EMAIL}</arg>
+<arg>${LOGIN_PASSWORD}</arg>
+<arg>Button</arg>
+<status status="PASS" start="2026-10-17T21:27:22.137863" elapsed="3.340342"/>
+</kw>
+<kw name="Go To Address Management">
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:25.480729" level="INFO">Clicks the element 'css=[data-test="btn-user-profile"]'.</msg>
+<arg>css=[data-test="btn-user-profile"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:25.479718" elapsed="0.903565"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:26.384795" level="INFO">Clicks the element 'css=[data-test="btn-edit-profile"]'.</msg>
+<arg>css=[data-test="btn-edit-profile"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:26.383283" elapsed="0.102028"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:26.487822" level="INFO">Clicks the element 'role=button[name="จัดการที่อยู่"]'.</msg>
+<arg>role=button[name="จัดการที่อยู่"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:26.486309" elapsed="0.186365"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:27:25.478205" elapsed="1.194469"/>
+</kw>
+<kw name="Get Element Count" owner="Browser">
+<msg time="2026-10-17T21:27:26.685236" level="INFO">${address_count_before} = 0</msg>
+<var>${address_count_before}</var>
+<arg>css=[data-test="address-detail"]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:26.673689" elapsed="0.011547"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:26.687230" level="INFO">Clicks the element 'css=[data-test="btn-add-address"]'.</msg>
+<arg>css=[data-test="btn-add-address"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:26.686230" elapsed="0.263871"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-17T21:27:26.953710" level="INFO">Fills the text '13/1 หมู่2' in the given field.</msg>
+<arg>role=textbox[name="บ้านเลขที่ / ถนน / ซอย"]</arg>
+<arg>${NEW_ADDRESS}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:26.950101" elapsed="0.846203"/>
+</kw>
+<kw name="Select Options By" owner="Browser">
+<msg time="2026-10-17T21:27:27.797307" level="INFO">Selects the option(s) 9 by attribute SelectAttribute.value from element css=select[name="province"].</msg>
+<arg>css=select[name="province"]</arg>
+<arg>value</arg>
+<arg>9</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:27.796304" elapsed="0.113776"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-17T21:27:28.239364" level="INFO">Waited for Element with selector css=select[name="district"] &gt;&gt; option[value="119"] at state attached</msg>
+<arg>css=select[name="district"] &gt;&gt; option[value="119"]</arg>
+<arg>attached</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-17T21:27:27.911662" elapsed="0.327702"/>
+</kw>
+<kw name="Select Options By" owner="Browser">
+<msg time="2026-10-17T21:27:28.241454" level="INFO">Selects the option(s) 119 by attribute SelectAttribute.value from element css=select[name="district"].</msg>
+<arg>css=select[name="district"]</arg>
+<arg>value</arg>
+<arg>119</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:28.240364" elapsed="0.056412"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-17T21:27:28.623291" level="INFO">Waited for Element with selector css=select[name="subDistrict"] &gt;&gt; option[value="934"] at state attached</msg>
+<arg>css=select[name="subDistrict"] &gt;&gt; option[value="934"]</arg>
+<arg>attached</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-17T21:27:28.296776" elapsed="0.326515"/>
+</kw>
+<kw name="Select Options By" owner="Browser">
+<msg time="2026-10-17T21:27:28.624798" level="INFO">Selects the option(s) 934 by attribute SelectAttribute.value from element css=select[name="subDistrict"].</msg>
+<arg>css=select[name="subDistrict"]</arg>
+<arg>value</arg>
+<arg>934</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:28.623291" elapsed="0.053214"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:28.679592" level="INFO">Clicks the element 'css=[data-test="btn-save-address"]'.</msg>
+<arg>css=[data-test="btn-save-address"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:28.678017" elapsed="0.124399"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-17T21:27:29.651531" level="INFO">Waited for Element with selector text="เพิ่มที่อยู่สำเร็จ" at state visible</msg>
+<arg>text="เพิ่มที่อยู่สำเร็จ"</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-17T21:27:28.803433" elapsed="0.849096"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-10-17T21:27:29.654916" level="INFO">${expected_address_count} = 1</msg>
+<var>${expected_address_count}</var>
+<arg>${address_count_before} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-10-17T21:27:29.653528" elapsed="0.001388"/>
+</kw>
+<kw name="Wait For Function" owner="Browser">
+<msg time="2026-10-17T21:27:29.919011" level="INFO">Wait For Function completed successfully.</msg>
+<arg>() =&gt; document.querySelectorAll('[data-test="address-detail"]').length &gt;= ${expected_address_count}</arg>
+<arg>timeout=15s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Polls JavaScript expression or function in browser until it returns a (JavaScript) truthy value.</doc>
+<status status="PASS" start="2026-10-17T21:27:29.656133" elapsed="0.263876"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2026-10-17T21:27:29.957847" level="INFO">Text: ['เพิ่มที่อยู่สำเร็จ\nสินค้า\nโปรโมชั่น\nเกี่ยวกับเรา\nติดต่อ\nหน้าหลัก\nโปรไฟล์\nแก้ไขโปรไฟล์\n\nBoom\n\nโปรไฟล์ของฉัน\nโปรไฟล์\nจัดการที่อยู่\nเปลี่ยนรหัสผ่าน\nการซื้อของฉัน\nการแจ้งเตือน\nที่อยู่ของฉัน\n+\nเพิ่มที่อยู่ใหม่\nBoom\n|\n0965873255\nแก้ไข\n|\nลบ\n13/1 หมู่2 ต.ห้วยกรด อ.สรรคบุรี จ.ชัยนาท 17140\nค่าเริ่มต้น\nที่อยู่ในการรับสินค้า\nตั้งเป็นค่าเริ่มต้น\nBoom\n|\n0965873255\nแก้ไข\n|\nลบ\n13/1 หมู่2 ต.ห้วยกรด อ.สรรคบุรี จ.ชัยนาท 17140\nที่อยู่ในการรับสินค้า\nตั้งเป็นค่าเริ่มต้น\nBoom\n|\n0965873255\nแก้ไข\n|\nลบ\n13/1 หมู่2 ต.ห้วยกรด อ.สรรคบุรี จ.ชัยนาท 17140\nที่อยู่ในการรับสินค้า\nตั้งเป็นค่าเริ่มต้น\nBoom\n|\n0965873255\nแก้ไข\n|\nลบ\n13/1 หมู่2 ต.ห้วยกรด อ.สรรคบุรี จ.ชัยนาท 17140\nที่อยู่ในการรับสินค้า\nตั้งเป็นค่าเริ่มต้น\nBoom\n|\n0965873255\nแก้ไข\n|\nลบ\n20/1 หมู่12 ต.นามะตูม อ.พนัสนิคม จ.ชลบุรี 20140\nที่อยู่ในการรับสินค้า\nตั้งเป็นค่าเริ่มต้น\nPT\nพัดทอง\n\nผลิตภัณฑ์แปรรูปจากสมุนไพรไทย มะม่วงหาว\nมะนาวโห่คุณภาพสูง เพื่อสุขภาพที่ดีของคุณ\n\nเมนู\nหน้าแรก\nสินค้าทั้งหมด\nโปรโมชั่น\nติดต่อเรา\nติดตามเรา\n© 2026 iTouchong Store สงวนลิขสิทธิ์']</msg>
+<arg>css=#root</arg>
+<arg>contains</arg>
+<arg>${EXPECTED_NEW}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:29.921004" elapsed="0.037859"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2026-10-17T21:27:29.987424" level="INFO">Text: ['เพิ่มที่อยู่สำเร็จ\nสินค้า\nโปรโมชั่น\nเกี่ยวกับเรา\nติดต่อ\nหน้าหลัก\nโปรไฟล์\nแก้ไขโปรไฟล์\n\nBoom\n\nโปรไฟล์ของฉัน\nโปรไฟล์\nจัดการที่อยู่\nเปลี่ยนรหัสผ่าน\nการซื้อของฉัน\nการแจ้งเตือน\nที่อยู่ของฉัน\n+\nเพิ่มที่อยู่ใหม่\nBoom\n|\n0965873255\nแก้ไข\n|\nลบ\n13/1 หมู่2 ต.ห้วยกรด อ.สรรคบุรี จ.ชัยนาท 17140\nค่าเริ่มต้น\nที่อยู่ในการรับสินค้า\nตั้งเป็นค่าเริ่มต้น\nBoom\n|\n0965873255\nแก้ไข\n|\nลบ\n13/1 หมู่2 ต.ห้วยกรด อ.สรรคบุรี จ.ชัยนาท 17140\nที่อยู่ในการรับสินค้า\nตั้งเป็นค่าเริ่มต้น\nBoom\n|\n0965873255\nแก้ไข\n|\nลบ\n13/1 หมู่2 ต.ห้วยกรด อ.สรรคบุรี จ.ชัยนาท 17140\nที่อยู่ในการรับสินค้า\nตั้งเป็นค่าเริ่มต้น\nBoom\n|\n0965873255\nแก้ไข\n|\nลบ\n13/1 หมู่2 ต.ห้วยกรด อ.สรรคบุรี จ.ชัยนาท 17140\nที่อยู่ในการรับสินค้า\nตั้งเป็นค่าเริ่มต้น\nBoom\n|\n0965873255\nแก้ไข\n|\nลบ\n20/1 หมู่12 ต.นามะตูม อ.พนัสนิคม จ.ชลบุรี 20140\nที่อยู่ในการรับสินค้า\nตั้งเป็นค่าเริ่มต้น\nPT\nพัดทอง\n\nผลิตภัณฑ์แปรรูปจากสมุนไพรไทย มะม่วงหาว\nมะนาวโห่คุณภาพสูง เพื่อสุขภาพที่ดีของคุณ\n\nเมนู\nหน้าแรก\nสินค้าทั้งหมด\nโปรโมชั่น\nติดต่อเรา\nติดตามเรา\n© 2026 iTouchong Store สงวนลิขสิทธิ์']</msg>
+<arg>css=#root</arg>
+<arg>contains</arg>
+<arg>${EXPECTED_OLD}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:29.959868" elapsed="0.027556"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:29.990028" level="INFO">Clicks the element 'css=[data-test^="btn-delete-address-"] &gt;&gt; nth=0'.</msg>
+<arg>css=[data-test^="btn-delete-address-"] &gt;&gt; nth=0</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:29.988455" elapsed="0.060916"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:30.051400" level="INFO">Clicks the element 'role=button[name="ยืนยัน"]'.</msg>
+<arg>role=button[name="ยืนยัน"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:30.049876" elapsed="0.596066"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-17T21:27:31.483665" level="INFO">Waited for Element with selector text="ลบที่อยู่สำเร็จ" at state visible</msg>
+<arg>text="ลบที่อยู่สำเร็จ"</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-17T21:27:30.648209" elapsed="0.835456"/>
+</kw>
+<kw name="Close Browser With Failure Screenshot" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Take Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-10-17T21:27:31.486323" elapsed="0.001000"/>
+</kw>
+<kw name="Close Browser" owner="Browser">
+<msg time="2026-10-17T21:27:31.647286" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-17T21:27:31.488323" elapsed="0.158963"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:27:31.485240" elapsed="0.162046"/>
+</kw>
+<doc>ตรวจสอบการเพิ่มที่อยู่จัดส่งใหม่เมื่อมีที่อยู่เดิม</doc>
+<tag>TC-003</tag>
+<tag>US-ADDR-02</tag>
+<status status="PASS" start="2026-10-17T21:27:21.754020" elapsed="9.893266"/>
+</test>
+<status status="PASS" start="2026-10-17T21:27:21.738061" elapsed="9.918573"/>
+</suite>
+<suite id="s1-s4" name="TC-004-address-required-fields" source="D:\storemate-test\robot\tests\TC-004-address-required-fields.robot">
+<test id="s1-s4-t1" name="TC-004-ตรวจสอบการแจ้งเตือนเมื่อบันทึกที่อยู่โดยกรอกข้อมูลไม่ครบ" line="13">
+<kw name="Start Browser Session" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-10-17T21:27:31.688564" level="INFO">{"browser": "chromium", "headless": true, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "D:\\storemate-test\\robot\\results\\browser\\traces\\temp\\751c8714-7286-4195-93d6-448ba448dc44"}</msg>
+<msg time="2026-10-17T21:27:31.869233" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":true,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"D:\\storemate-test\\robot\\results\\browser\\traces\\temp\\751c8714-7286-4195-93d6-448ba448dc44"}</msg>
+<arg>chromium</arg>
+<arg>headless=${HEADLESS}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-10-17T21:27:31.687506" elapsed="0.181727"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2026-10-17T21:27:31.880839" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  }
+}</msg>
+<msg time="2026-10-17T21:27:31.899372" level="INFO">Successfully created context. </msg>
+<msg time="2026-10-17T21:27:31.899372" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1280, 'height': 720}}</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-10-17T21:27:31.871777" elapsed="0.027595"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-10-17T21:27:32.043700" level="INFO">Successfully initialized new page object and opened url: about:blank</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-10-17T21:27:31.900933" elapsed="0.144278"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:27:31.686158" elapsed="0.359053"/>
+</kw>
+<kw name="Login With Account">
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-17T21:27:34.011550" level="INFO">Successfully opened URL https://storemate-final.vercel.app/</msg>
+<arg>${BASE_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2026-10-17T21:27:32.047320" elapsed="1.965831"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:34.016177" level="INFO">Clicks the element 'css=[data-test="login-btn"]'.</msg>
+<arg>css=[data-test="login-btn"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:34.014182" elapsed="0.197730"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-17T21:27:34.214023" level="INFO">Fills the text 'eyejang1@gmail.com' in the given field.</msg>
+<arg>css=[data-test="email"]</arg>
+<arg>${email}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:34.211912" elapsed="0.146767"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-17T21:27:34.360188" level="INFO">Fills the text 'Eyejang1234' in the given field.</msg>
+<arg>css=[data-test="password"]</arg>
+<arg>${password}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:34.358679" elapsed="0.035396"/>
+</kw>
+<if>
+<branch type="IF" condition="'${submit_method}' == 'Enter'">
+<kw name="Press Keys" owner="Browser">
+<arg>css=[data-test="password"]</arg>
+<arg>Enter</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given key combination into element found by ``selector``.</doc>
+<status status="NOT RUN" start="2026-10-17T21:27:34.395590" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-10-17T21:27:34.394075" elapsed="0.001515"/>
+</branch>
+<branch type="ELSE">
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:34.398178" level="INFO">Clicks the element 'css=[data-test="btn-submit"]'.</msg>
+<arg>css=[data-test="btn-submit"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:34.395590" elapsed="0.104185"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:27:34.395590" elapsed="0.104185"/>
+</branch>
+<status status="PASS" start="2026-10-17T21:27:34.394075" elapsed="0.105700"/>
+</if>
+<arg>${LOGIN_EMAIL}</arg>
+<arg>${LOGIN_PASSWORD}</arg>
+<arg>Button</arg>
+<status status="PASS" start="2026-10-17T21:27:32.046223" elapsed="2.453552"/>
+</kw>
+<kw name="Go To Address Management">
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:34.502280" level="INFO">Clicks the element 'css=[data-test="btn-user-profile"]'.</msg>
+<arg>css=[data-test="btn-user-profile"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:34.500775" elapsed="0.905663"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:35.411524" level="INFO">Clicks the element 'css=[data-test="btn-edit-profile"]'.</msg>
+<arg>css=[data-test="btn-edit-profile"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:35.407434" elapsed="0.102333"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:35.511795" level="INFO">Clicks the element 'role=button[name="จัดการที่อยู่"]'.</msg>
+<arg>role=button[name="จัดการที่อยู่"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:35.510796" elapsed="0.170498"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:27:34.500775" elapsed="1.180519"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:35.682803" level="INFO">Clicks the element 'css=[data-test="btn-add-address"]'.</msg>
+<arg>css=[data-test="btn-add-address"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:35.681294" elapsed="0.163846"/>
+</kw>
+<kw name="Select Options By" owner="Browser">
+<msg time="2026-10-17T21:27:35.847787" level="INFO">Selects the option(s) 15 by attribute SelectAttribute.value from element css=select[name="province"].</msg>
+<arg>css=select[name="province"]</arg>
+<arg>value</arg>
+<arg>15</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:35.846187" elapsed="0.899368"/>
+</kw>
+<kw name="Select Options By" owner="Browser">
+<msg time="2026-10-17T21:27:36.748595" level="INFO">Selects the option(s) 180 by attribute SelectAttribute.value from element css=select[name="district"].</msg>
+<arg>css=select[name="district"]</arg>
+<arg>value</arg>
+<arg>180</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:36.746550" elapsed="0.315480"/>
+</kw>
+<kw name="Select Options By" owner="Browser">
+<msg time="2026-10-17T21:27:37.064391" level="INFO">Selects the option(s) 1452 by attribute SelectAttribute.value from element css=select[name="subDistrict"].</msg>
+<arg>css=select[name="subDistrict"]</arg>
+<arg>value</arg>
+<arg>1452</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:37.062030" elapsed="0.315809"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:37.379843" level="INFO">Clicks the element 'css=[data-test="btn-save-address"]'.</msg>
+<arg>css=[data-test="btn-save-address"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:37.378842" elapsed="0.175257"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-17T21:27:37.890294" level="INFO">Waited for Element with selector text="กรุณากรอกข้อมูลให้ครบถ้วน" at state visible</msg>
+<arg>text="กรุณากรอกข้อมูลให้ครบถ้วน"</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-17T21:27:37.555119" elapsed="0.335175"/>
+</kw>
+<kw name="Get Element States" owner="Browser">
+<msg time="2026-10-17T21:27:37.969509" level="INFO">States are: ['attached', 'visible', 'enabled', 'defocused']</msg>
+<msg time="2026-10-17T21:27:37.969509" level="INFO">${states} = ['attached', 'visible', 'enabled', 'defocused']</msg>
+<var>${states}</var>
+<arg>text="กรุณากรอกข้อมูลให้ครบถ้วน"</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Get the active states from the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:37.891858" elapsed="0.077651"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${states}</arg>
+<arg>visible</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="PASS" start="2026-10-17T21:27:37.971026" elapsed="0.001519"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:37.973561" level="INFO">Clicks the element 'css=[data-test="btn-cancel-address"]'.</msg>
+<arg>css=[data-test="btn-cancel-address"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:37.973054" elapsed="0.075924"/>
+</kw>
+<kw name="Close Browser With Failure Screenshot" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Take Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-10-17T21:27:38.050510" elapsed="0.001036"/>
+</kw>
+<kw name="Close Browser" owner="Browser">
+<msg time="2026-10-17T21:27:38.190014" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-17T21:27:38.051546" elapsed="0.140469"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:27:38.049485" elapsed="0.142530"/>
+</kw>
+<doc>ตรวจสอบการป้องกันการบันทึกเมื่อกรอกข้อมูลที่อยู่ไม่ครบถ้วน</doc>
+<tag>TC-004</tag>
+<tag>US-ADDR-02</tag>
+<status status="PASS" start="2026-10-17T21:27:31.674490" elapsed="6.519043"/>
+</test>
+<status status="PASS" start="2026-10-17T21:27:31.664435" elapsed="6.543905"/>
+</suite>
+<suite id="s1-s5" name="TC-005-address-dropdown-dependencies" source="D:\storemate-test\robot\tests\TC-005-address-dropdown-dependencies.robot">
+<test id="s1-s5-t1" name="TC-005-ตรวจสอบการปิดใช้งาน Dropdown อำเภอเมื่อยังไม่ได้เลือกจังหวัด" line="14">
+<kw name="Start Browser Session" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-10-17T21:27:38.261464" level="INFO">{"browser": "chromium", "headless": true, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "D:\\storemate-test\\robot\\results\\browser\\traces\\temp\\05156eec-e531-4d42-b006-0d53bfffa0d6"}</msg>
+<msg time="2026-10-17T21:27:38.446696" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":true,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"D:\\storemate-test\\robot\\results\\browser\\traces\\temp\\05156eec-e531-4d42-b006-0d53bfffa0d6"}</msg>
+<arg>chromium</arg>
+<arg>headless=${HEADLESS}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-10-17T21:27:38.260271" elapsed="0.186937"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2026-10-17T21:27:38.455461" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  }
+}</msg>
+<msg time="2026-10-17T21:27:38.478666" level="INFO">Successfully created context. </msg>
+<msg time="2026-10-17T21:27:38.478666" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1280, 'height': 720}}</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-10-17T21:27:38.448740" elapsed="0.029926"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-10-17T21:27:38.617220" level="INFO">Successfully initialized new page object and opened url: about:blank</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-10-17T21:27:38.478666" elapsed="0.139668"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:27:38.259259" elapsed="0.359075"/>
+</kw>
+<kw name="Login With Account">
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-17T21:27:41.514909" level="INFO">Successfully opened URL https://storemate-final.vercel.app/</msg>
+<arg>${BASE_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2026-10-17T21:27:38.620757" elapsed="2.894152"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:41.517425" level="INFO">Clicks the element 'css=[data-test="login-btn"]'.</msg>
+<arg>css=[data-test="login-btn"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:41.515910" elapsed="0.119198"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-17T21:27:41.638105" level="INFO">Fills the text 'eyejang1@gmail.com' in the given field.</msg>
+<arg>css=[data-test="email"]</arg>
+<arg>${email}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:41.636110" elapsed="0.224889"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-17T21:27:41.862508" level="INFO">Fills the text 'Eyejang1234' in the given field.</msg>
+<arg>css=[data-test="password"]</arg>
+<arg>${password}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:41.860999" elapsed="0.023577"/>
+</kw>
+<if>
+<branch type="IF" condition="'${submit_method}' == 'Enter'">
+<kw name="Press Keys" owner="Browser">
+<arg>css=[data-test="password"]</arg>
+<arg>Enter</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given key combination into element found by ``selector``.</doc>
+<status status="NOT RUN" start="2026-10-17T21:27:41.885572" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-10-17T21:27:41.884576" elapsed="0.000996"/>
+</branch>
+<branch type="ELSE">
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:41.887627" level="INFO">Clicks the element 'css=[data-test="btn-submit"]'.</msg>
+<arg>css=[data-test="btn-submit"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:41.886573" elapsed="0.080148"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:27:41.885572" elapsed="0.081149"/>
+</branch>
+<status status="PASS" start="2026-10-17T21:27:41.884576" elapsed="0.082145"/>
+</if>
+<arg>${LOGIN_EMAIL}</arg>
+<arg>${LOGIN_PASSWORD}</arg>
+<arg>Button</arg>
+<status status="PASS" start="2026-10-17T21:27:38.619337" elapsed="3.347384"/>
+</kw>
+<kw name="Go To Address Management">
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:41.969439" level="INFO">Clicks the element 'css=[data-test="btn-user-profile"]'.</msg>
+<arg>css=[data-test="btn-user-profile"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:41.968924" elapsed="0.917692"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:42.889158" level="INFO">Clicks the element 'css=[data-test="btn-edit-profile"]'.</msg>
+<arg>css=[data-test="btn-edit-profile"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:42.886616" elapsed="0.093497"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:42.982620" level="INFO">Clicks the element 'role=button[name="จัดการที่อยู่"]'.</msg>
+<arg>role=button[name="จัดการที่อยู่"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:42.981110" elapsed="0.186925"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:27:41.967925" elapsed="1.200110"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:43.169534" level="INFO">Clicks the element 'css=[data-test="btn-add-address"]'.</msg>
+<arg>css=[data-test="btn-add-address"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:43.169534" elapsed="0.177124"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-17T21:27:43.349686" level="INFO">Fills the text '12/2 หมู่3' in the given field.</msg>
+<arg>role=textbox[name="บ้านเลขที่ / ถนน / ซอย"]</arg>
+<arg>${NEW_ADDRESS}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:43.347690" elapsed="0.855998"/>
+</kw>
+<kw name="Get Element States" owner="Browser">
+<msg time="2026-10-17T21:27:44.293205" level="INFO">States are: ['attached', 'visible', 'disabled', 'readonly', 'defocused']</msg>
+<msg time="2026-10-17T21:27:44.293205" level="INFO">${district_states} = ['attached', 'visible', 'disabled', 'readonly', 'defocused']</msg>
+<var>${district_states}</var>
+<arg>css=select[name="district"]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Get the active states from the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:44.205188" elapsed="0.089018"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${district_states}</arg>
+<arg>disabled</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="PASS" start="2026-10-17T21:27:44.294206" elapsed="0.002333"/>
+</kw>
+<kw name="Close Browser With Failure Screenshot" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Take Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-10-17T21:27:44.297536" elapsed="0.001005"/>
+</kw>
+<kw name="Close Browser" owner="Browser">
+<msg time="2026-10-17T21:27:44.438612" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-17T21:27:44.298541" elapsed="0.141580"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:27:44.297536" elapsed="0.142585"/>
+</kw>
+<doc>ตรวจสอบการปิดใช้งาน Dropdown อำเภอเมื่อยังไม่ได้เลือกจังหวัด</doc>
+<tag>TC-005</tag>
+<tag>US-ADDR-02</tag>
+<status status="PASS" start="2026-10-17T21:27:38.246287" elapsed="6.193834"/>
+</test>
+<status status="PASS" start="2026-10-17T21:27:38.224926" elapsed="6.228356"/>
+</suite>
+<suite id="s1-s6" name="TC-006-edit-existing-address" source="D:\storemate-test\robot\tests\TC-006-edit-existing-address.robot">
+<test id="s1-s6-t1" name="TC-006-ตรวจสอบการบันทึกข้อมูลที่อยู่จัดส่งหลังจากแก้ไขสำเร็จ" line="14">
+<kw name="Start Browser Session" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-10-17T21:27:44.496362" level="INFO">{"browser": "chromium", "headless": true, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "D:\\storemate-test\\robot\\results\\browser\\traces\\temp\\a5602f37-6780-4eb6-83a2-bf5928eec955"}</msg>
+<msg time="2026-10-17T21:27:44.680825" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":true,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"D:\\storemate-test\\robot\\results\\browser\\traces\\temp\\a5602f37-6780-4eb6-83a2-bf5928eec955"}</msg>
+<arg>chromium</arg>
+<arg>headless=${HEADLESS}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-10-17T21:27:44.495294" elapsed="0.185531"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2026-10-17T21:27:44.685964" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  }
+}</msg>
+<msg time="2026-10-17T21:27:44.705578" level="INFO">Successfully created context. </msg>
+<msg time="2026-10-17T21:27:44.707088" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1280, 'height': 720}}</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-10-17T21:27:44.682398" elapsed="0.024690"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-10-17T21:27:44.846168" level="INFO">Successfully initialized new page object and opened url: about:blank</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-10-17T21:27:44.708108" elapsed="0.138060"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:27:44.494280" elapsed="0.353195"/>
+</kw>
+<kw name="Login With Account">
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-17T21:27:47.929278" level="INFO">Successfully opened URL https://storemate-final.vercel.app/</msg>
+<arg>${BASE_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2026-10-17T21:27:44.849014" elapsed="3.080264"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:47.932254" level="INFO">Clicks the element 'css=[data-test="login-btn"]'.</msg>
+<arg>css=[data-test="login-btn"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:47.930736" elapsed="0.111466"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-17T21:27:48.044201" level="INFO">Fills the text 'eyejang1@gmail.com' in the given field.</msg>
+<arg>css=[data-test="email"]</arg>
+<arg>${email}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:48.042202" elapsed="0.130418"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-17T21:27:48.173680" level="INFO">Fills the text 'Eyejang1234' in the given field.</msg>
+<arg>css=[data-test="password"]</arg>
+<arg>${password}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:48.172620" elapsed="0.024432"/>
+</kw>
+<if>
+<branch type="IF" condition="'${submit_method}' == 'Enter'">
+<kw name="Press Keys" owner="Browser">
+<arg>css=[data-test="password"]</arg>
+<arg>Enter</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given key combination into element found by ``selector``.</doc>
+<status status="NOT RUN" start="2026-10-17T21:27:48.198563" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-10-17T21:27:48.197052" elapsed="0.001511"/>
+</branch>
+<branch type="ELSE">
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:48.201183" level="INFO">Clicks the element 'css=[data-test="btn-submit"]'.</msg>
+<arg>css=[data-test="btn-submit"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:48.198563" elapsed="0.088868"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:27:48.198563" elapsed="0.089868"/>
+</branch>
+<status status="PASS" start="2026-10-17T21:27:48.197052" elapsed="0.091379"/>
+</if>
+<arg>${LOGIN_EMAIL}</arg>
+<arg>${LOGIN_PASSWORD}</arg>
+<arg>Button</arg>
+<status status="PASS" start="2026-10-17T21:27:44.847475" elapsed="3.440956"/>
+</kw>
+<kw name="Go To Address Management">
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:48.291427" level="INFO">Clicks the element 'css=[data-test="btn-user-profile"]'.</msg>
+<arg>css=[data-test="btn-user-profile"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:48.289940" elapsed="0.899338"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:49.190783" level="INFO">Clicks the element 'css=[data-test="btn-edit-profile"]'.</msg>
+<arg>css=[data-test="btn-edit-profile"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:49.190276" elapsed="0.064971"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:49.257526" level="INFO">Clicks the element 'role=button[name="จัดการที่อยู่"]'.</msg>
+<arg>role=button[name="จัดการที่อยู่"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:49.256490" elapsed="0.166517"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:27:48.288431" elapsed="1.134576"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:49.424944" level="INFO">Clicks the element 'css=[data-test^="btn-edit-address-"] &gt;&gt; nth=0'.</msg>
+<arg>css=[data-test^="btn-edit-address-"] &gt;&gt; nth=0</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:49.424434" elapsed="0.913436"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-17T21:27:50.338867" level="INFO">Fills the text '10/2 หมู่7' in the given field.</msg>
+<arg>role=textbox[name="บ้านเลขที่ / ถนน / ซอย"]</arg>
+<arg>${UPDATED_ADDRESS}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:50.337870" elapsed="1.388185"/>
+</kw>
+<kw name="Select Options By" owner="Browser">
+<msg time="2026-10-17T21:27:51.728377" level="INFO">Selects the option(s) 9 by attribute SelectAttribute.value from element css=select[name="province"].</msg>
+<arg>css=select[name="province"]</arg>
+<arg>value</arg>
+<arg>9</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:51.727055" elapsed="0.102115"/>
+</kw>
+<kw name="Select Options By" owner="Browser">
+<msg time="2026-10-17T21:27:51.831171" level="INFO">Selects the option(s) 118 by attribute SelectAttribute.value from element css=select[name="district"].</msg>
+<arg>css=select[name="district"]</arg>
+<arg>value</arg>
+<arg>118</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:51.830170" elapsed="0.291411"/>
+</kw>
+<kw name="Select Options By" owner="Browser">
+<msg time="2026-10-17T21:27:52.124089" level="INFO">Selects the option(s) 931 by attribute SelectAttribute.value from element css=select[name="subDistrict"].</msg>
+<arg>css=select[name="subDistrict"]</arg>
+<arg>value</arg>
+<arg>931</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:52.122578" elapsed="0.303000"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:52.428666" level="INFO">Clicks the element 'css=[data-test="btn-save-address"]'.</msg>
+<arg>css=[data-test="btn-save-address"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:52.426670" elapsed="0.126768"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-17T21:27:53.424157" level="INFO">Waited for Element with selector text="แก้ไขที่อยู่สำเร็จ" at state visible</msg>
+<arg>text="แก้ไขที่อยู่สำเร็จ"</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-17T21:27:52.554470" elapsed="0.869687"/>
+</kw>
+<kw name="Get Element States" owner="Browser">
+<msg time="2026-10-17T21:27:53.471213" level="INFO">States are: ['attached', 'visible', 'enabled', 'defocused']</msg>
+<msg time="2026-10-17T21:27:53.472225" level="INFO">${states} = ['attached', 'visible', 'enabled', 'defocused']</msg>
+<var>${states}</var>
+<arg>text="แก้ไขที่อยู่สำเร็จ"</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Get the active states from the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:53.425665" elapsed="0.046560"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${states}</arg>
+<arg>visible</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="PASS" start="2026-10-17T21:27:53.472734" elapsed="0.001525"/>
+</kw>
+<kw name="Close Browser With Failure Screenshot" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Take Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-10-17T21:27:53.475588" elapsed="0.000000"/>
+</kw>
+<kw name="Close Browser" owner="Browser">
+<msg time="2026-10-17T21:27:53.623394" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-17T21:27:53.476597" elapsed="0.147931"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:27:53.474259" elapsed="0.150269"/>
+</kw>
+<doc>ตรวจสอบการแก้ไขข้อมูลที่อยู่จัดส่งและบันทึกสำเร็จ</doc>
+<tag>TC-006</tag>
+<tag>US-ADDR-03</tag>
+<status status="PASS" start="2026-10-17T21:27:44.481259" elapsed="9.143269"/>
+</test>
+<status status="PASS" start="2026-10-17T21:27:44.467707" elapsed="9.173446"/>
+</suite>
+<suite id="s1-s7" name="TC-007-default-address-after-edit" source="D:\storemate-test\robot\tests\TC-007-default-address-after-edit.robot">
+<test id="s1-s7-t1" name="TC-007-ตรวจสอบการแสดงปุ่มตั้งเป็นที่อยู่เริ่มต้นหลังแก้ไขที่อยู่จัดส่ง" line="13">
+<kw name="Start Browser Session" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-10-17T21:27:53.699478" level="INFO">{"browser": "chromium", "headless": true, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "D:\\storemate-test\\robot\\results\\browser\\traces\\temp\\fc55de1b-b659-4d34-add3-a9bb180170e4"}</msg>
+<msg time="2026-10-17T21:27:53.905530" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":true,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"D:\\storemate-test\\robot\\results\\browser\\traces\\temp\\fc55de1b-b659-4d34-add3-a9bb180170e4"}</msg>
+<arg>chromium</arg>
+<arg>headless=${HEADLESS}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-10-17T21:27:53.698340" elapsed="0.207629"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2026-10-17T21:27:53.919677" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  }
+}</msg>
+<msg time="2026-10-17T21:27:53.941043" level="INFO">Successfully created context. </msg>
+<msg time="2026-10-17T21:27:53.941043" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1280, 'height': 720}}</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-10-17T21:27:53.914571" elapsed="0.026472"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-10-17T21:27:54.080559" level="INFO">Successfully initialized new page object and opened url: about:blank</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-10-17T21:27:53.942045" elapsed="0.138514"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:27:53.696278" elapsed="0.385523"/>
+</kw>
+<kw name="Login With Account">
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-17T21:27:57.226021" level="INFO">Successfully opened URL https://storemate-final.vercel.app/</msg>
+<arg>${BASE_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2026-10-17T21:27:54.082972" elapsed="3.143049"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:57.227018" level="INFO">Clicks the element 'css=[data-test="login-btn"]'.</msg>
+<arg>css=[data-test="login-btn"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:57.226021" elapsed="0.098717"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-17T21:27:57.326750" level="INFO">Fills the text 'eyejang1@gmail.com' in the given field.</msg>
+<arg>css=[data-test="email"]</arg>
+<arg>${email}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:57.325750" elapsed="0.129451"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-17T21:27:57.457251" level="INFO">Fills the text 'Eyejang1234' in the given field.</msg>
+<arg>css=[data-test="password"]</arg>
+<arg>${password}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:57.456252" elapsed="0.025985"/>
+</kw>
+<if>
+<branch type="IF" condition="'${submit_method}' == 'Enter'">
+<kw name="Press Keys" owner="Browser">
+<arg>css=[data-test="password"]</arg>
+<arg>Enter</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given key combination into element found by ``selector``.</doc>
+<status status="NOT RUN" start="2026-10-17T21:27:57.484238" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-10-17T21:27:57.483238" elapsed="0.001000"/>
+</branch>
+<branch type="ELSE">
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:57.485778" level="INFO">Clicks the element 'css=[data-test="btn-submit"]'.</msg>
+<arg>css=[data-test="btn-submit"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:57.484238" elapsed="0.083538"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:27:57.484238" elapsed="0.083538"/>
+</branch>
+<status status="PASS" start="2026-10-17T21:27:57.483238" elapsed="0.084538"/>
+</if>
+<arg>${LOGIN_EMAIL}</arg>
+<arg>${LOGIN_PASSWORD}</arg>
+<arg>Button</arg>
+<status status="PASS" start="2026-10-17T21:27:54.081801" elapsed="3.485975"/>
+</kw>
+<kw name="Go To Address Management">
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:57.570089" level="INFO">Clicks the element 'css=[data-test="btn-user-profile"]'.</msg>
+<arg>css=[data-test="btn-user-profile"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:57.568989" elapsed="0.905205"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:58.476336" level="INFO">Clicks the element 'css=[data-test="btn-edit-profile"]'.</msg>
+<arg>css=[data-test="btn-edit-profile"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:58.475297" elapsed="0.093523"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:58.571229" level="INFO">Clicks the element 'role=button[name="จัดการที่อยู่"]'.</msg>
+<arg>role=button[name="จัดการที่อยู่"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:58.570229" elapsed="0.186230"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:27:57.567776" elapsed="1.189681"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:27:58.760558" level="INFO">Clicks the element 'css=[data-test^="btn-edit-address-"] &gt;&gt; nth=1'.</msg>
+<arg>css=[data-test^="btn-edit-address-"] &gt;&gt; nth=1</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:58.758967" elapsed="0.887561"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-10-17T21:27:59.648760" level="INFO">${house_number} = 869</msg>
+<var>${house_number}</var>
+<arg>random.randint(1, 999)</arg>
+<arg>modules=random</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-10-17T21:27:59.647528" elapsed="0.001232"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-10-17T21:27:59.649877" level="INFO">${house_group} = 82</msg>
+<var>${house_group}</var>
+<arg>random.randint(1, 99)</arg>
+<arg>modules=random</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-10-17T21:27:59.648760" elapsed="0.001117"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-10-17T21:27:59.651386" level="INFO">${village_number} = 1</msg>
+<var>${village_number}</var>
+<arg>random.randint(1, 15)</arg>
+<arg>modules=random</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-10-17T21:27:59.649877" elapsed="0.001509"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2026-10-17T21:27:59.652434" level="INFO">${updated_address} = 869/82 หมู่ 1</msg>
+<var>${updated_address}</var>
+<arg>SEPARATOR=</arg>
+<arg>${house_number}</arg>
+<arg>/</arg>
+<arg>${house_group}</arg>
+<arg>${SPACE}หมู่${SPACE}</arg>
+<arg>${village_number}</arg>
+<doc>Concatenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2026-10-17T21:27:59.651386" elapsed="0.001048"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-17T21:27:59.653436" level="INFO">Fills the text '869/82 หมู่ 1' in the given field.</msg>
+<arg>role=textbox[name="บ้านเลขที่ / ถนน / ซอย"]</arg>
+<arg>${updated_address}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:27:59.652434" elapsed="1.375816"/>
+</kw>
+<kw name="Select Options By" owner="Browser">
+<msg time="2026-10-17T21:28:01.031780" level="INFO">Selects the option(s) 69 by attribute SelectAttribute.value from element css=select[name="province"].</msg>
+<arg>css=select[name="province"]</arg>
+<arg>value</arg>
+<arg>69</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:01.029247" elapsed="0.102737"/>
+</kw>
+<kw name="Select Options By" owner="Browser">
+<msg time="2026-10-17T21:28:01.135134" level="INFO">Selects the option(s) 911 by attribute SelectAttribute.value from element css=select[name="district"].</msg>
+<arg>css=select[name="district"]</arg>
+<arg>value</arg>
+<arg>911</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:01.132995" elapsed="0.327525"/>
+</kw>
+<kw name="Select Options By" owner="Browser">
+<msg time="2026-10-17T21:28:01.462557" level="INFO">Selects the option(s) 8119 by attribute SelectAttribute.value from element css=select[name="subDistrict"].</msg>
+<arg>css=select[name="subDistrict"]</arg>
+<arg>value</arg>
+<arg>8119</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:01.461555" elapsed="0.287910"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:28:01.751467" level="INFO">Clicks the element 'css=[data-test="btn-save-address"]'.</msg>
+<arg>css=[data-test="btn-save-address"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:01.750466" elapsed="0.094403"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-17T21:28:03.201377" level="INFO">Waited for Element with selector text="แก้ไขที่อยู่สำเร็จ" at state visible</msg>
+<arg>text="แก้ไขที่อยู่สำเร็จ"</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-17T21:28:01.846132" elapsed="1.355245"/>
+</kw>
+<kw name="Get Element States" owner="Browser">
+<msg time="2026-10-17T21:28:03.286954" level="INFO">States are: ['attached', 'visible', 'enabled', 'defocused']</msg>
+<msg time="2026-10-17T21:28:03.286954" level="INFO">${save_states} = ['attached', 'visible', 'enabled', 'defocused']</msg>
+<var>${save_states}</var>
+<arg>text="แก้ไขที่อยู่สำเร็จ"</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Get the active states from the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:03.202422" elapsed="0.084532"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${save_states}</arg>
+<arg>visible</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="PASS" start="2026-10-17T21:28:03.288488" elapsed="0.000515"/>
+</kw>
+<kw name="Get Element States" owner="Browser">
+<msg time="2026-10-17T21:28:03.353855" level="INFO">States are: ['attached', 'visible', 'disabled', 'readonly', 'defocused']</msg>
+<msg time="2026-10-17T21:28:03.353855" level="INFO">${default_button_states} = ['attached', 'visible', 'disabled', 'readonly', 'defocused']</msg>
+<var>${default_button_states}</var>
+<arg>css=[data-test="btn-set-default"] &gt;&gt; nth=0</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Get the active states from the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:03.290017" elapsed="0.063838"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${default_button_states}</arg>
+<arg>visible</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="PASS" start="2026-10-17T21:28:03.355383" elapsed="0.001066"/>
+</kw>
+<kw name="Close Browser With Failure Screenshot" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Take Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-10-17T21:28:03.357992" elapsed="0.001296"/>
+</kw>
+<kw name="Close Browser" owner="Browser">
+<msg time="2026-10-17T21:28:03.495059" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-17T21:28:03.359288" elapsed="0.135771"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:28:03.356977" elapsed="0.138082"/>
+</kw>
+<doc>ตรวจสอบการกำหนดที่อยู่ที่แก้ไขเป็นค่าเริ่มต้น</doc>
+<tag>TC-007</tag>
+<tag>US-ADDR-03</tag>
+<status status="PASS" start="2026-10-17T21:27:53.681091" elapsed="9.813968"/>
+</test>
+<status status="PASS" start="2026-10-17T21:27:53.654960" elapsed="9.855656"/>
+</suite>
+<suite id="s1-s8" name="TC-008-delete-non-default-address" source="D:\storemate-test\robot\tests\TC-008-delete-non-default-address.robot">
+<test id="s1-s8-t1" name="TC-008-ตรวจสอบการลบที่อยู่จัดส่งที่ไม่ใช่ค่าเริ่มต้นสำเร็จและคงสถานะที่อยู่เริ่มต้นไว้" line="15">
+<kw name="Prepare New Address For Deletion" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-10-17T21:28:03.564320" level="INFO">{"browser": "chromium", "headless": true, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "D:\\storemate-test\\robot\\results\\browser\\traces\\temp\\f379764c-b002-46eb-9dd2-fe1a8c5db598"}</msg>
+<msg time="2026-10-17T21:28:03.725882" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":true,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"D:\\storemate-test\\robot\\results\\browser\\traces\\temp\\f379764c-b002-46eb-9dd2-fe1a8c5db598"}</msg>
+<arg>chromium</arg>
+<arg>headless=${HEADLESS}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-10-17T21:28:03.562289" elapsed="0.164609"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2026-10-17T21:28:03.734060" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  }
+}</msg>
+<msg time="2026-10-17T21:28:03.749770" level="INFO">Successfully created context. </msg>
+<msg time="2026-10-17T21:28:03.749770" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1280, 'height': 720}}</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-10-17T21:28:03.727921" elapsed="0.021849"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-10-17T21:28:03.892755" level="INFO">Successfully initialized new page object and opened url: about:blank</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-10-17T21:28:03.751274" elapsed="0.141481"/>
+</kw>
+<kw name="Set Retry Assertions For" owner="Browser">
+<arg>10s</arg>
+<tag>Config</tag>
+<tag>Setter</tag>
+<doc>Sets the timeout used in retrying assertions when they fail.</doc>
+<status status="PASS" start="2026-10-17T21:28:03.893765" elapsed="0.000997"/>
+</kw>
+<kw name="Login With Account">
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-17T21:28:06.923735" level="INFO">Successfully opened URL https://storemate-final.vercel.app/</msg>
+<arg>${BASE_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2026-10-17T21:28:03.896778" elapsed="3.027955"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:28:06.926245" level="INFO">Clicks the element 'css=[data-test="login-btn"]'.</msg>
+<arg>css=[data-test="login-btn"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:06.924733" elapsed="0.117355"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-17T21:28:07.043604" level="INFO">Fills the text 'makwid@gmail.com' in the given field.</msg>
+<arg>css=[data-test="email"]</arg>
+<arg>${email}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:07.042088" elapsed="0.138783"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-17T21:28:07.182868" level="INFO">Fills the text 'Makwid1234' in the given field.</msg>
+<arg>css=[data-test="password"]</arg>
+<arg>${password}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:07.181868" elapsed="0.019790"/>
+</kw>
+<if>
+<branch type="IF" condition="'${submit_method}' == 'Enter'">
+<kw name="Press Keys" owner="Browser">
+<arg>css=[data-test="password"]</arg>
+<arg>Enter</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given key combination into element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:07.202662" elapsed="0.046542"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:28:07.202662" elapsed="0.047053"/>
+</branch>
+<branch type="ELSE">
+<kw name="Click" owner="Browser">
+<arg>css=[data-test="btn-submit"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2026-10-17T21:28:07.249715" elapsed="0.001501"/>
+</kw>
+<status status="NOT RUN" start="2026-10-17T21:28:07.249715" elapsed="0.001501"/>
+</branch>
+<status status="PASS" start="2026-10-17T21:28:07.202662" elapsed="0.048554"/>
+</if>
+<arg>${LOGIN_EMAIL}</arg>
+<arg>${LOGIN_PASSWORD}</arg>
+<arg>Enter</arg>
+<status status="PASS" start="2026-10-17T21:28:03.895766" elapsed="3.356467"/>
+</kw>
+<kw name="Go To Address Management">
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:28:07.254450" level="INFO">Clicks the element 'css=[data-test="btn-user-profile"]'.</msg>
+<arg>css=[data-test="btn-user-profile"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:07.253446" elapsed="0.882446"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:28:08.137946" level="INFO">Clicks the element 'css=[data-test="btn-edit-profile"]'.</msg>
+<arg>css=[data-test="btn-edit-profile"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:08.135892" elapsed="0.073856"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:28:08.213349" level="INFO">Clicks the element 'role=button[name="จัดการที่อยู่"]'.</msg>
+<arg>role=button[name="จัดการที่อยู่"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:08.211318" elapsed="0.178196"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:28:07.252233" elapsed="1.137281"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-17T21:28:09.226006" level="INFO">Waited for Element with selector css=[data-test="address-detail"] &gt;&gt; nth=0 at state visible</msg>
+<arg>${ADDRESS_ITEM} &gt;&gt; nth=0</arg>
+<arg>visible</arg>
+<arg>timeout=15s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-17T21:28:08.389514" elapsed="0.836492"/>
+</kw>
+<kw name="Get Element Count" owner="Browser">
+<msg time="2026-10-17T21:28:09.238575" level="INFO">${count_before} = 3</msg>
+<var>${count_before}</var>
+<arg>${ADDRESS_ITEM}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:09.227101" elapsed="0.012475"/>
+</kw>
+<kw name="Evaluate JavaScript" owner="Browser">
+<msg time="2026-10-17T21:28:09.260114" level="INFO">JavaScript executed successfully.</msg>
+<msg time="2026-10-17T21:28:09.260114" level="INFO">${old_ids} = ['btn-delete-address-563', 'btn-delete-address-561', 'btn-delete-address-559']</msg>
+<var>${old_ids}</var>
+<arg>${None}</arg>
+<arg>${DELETE_BUTTONS_JS}</arg>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Executes the given JavaScript in the browser page.</doc>
+<status status="PASS" start="2026-10-17T21:28:09.239576" elapsed="0.021969"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:28:09.263546" level="INFO">Clicks the element 'css=[data-test="btn-add-address"]'.</msg>
+<arg>css=[data-test="btn-add-address"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:09.261545" elapsed="0.069644"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-10-17T21:28:09.333216" level="INFO">${house_number} = 323</msg>
+<var>${house_number}</var>
+<arg>random.randint(1, 9999)</arg>
+<arg>modules=random</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-10-17T21:28:09.331189" elapsed="0.002027"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-17T21:28:09.335231" level="INFO">Fills the text '323 หมู่ 5' in the given field.</msg>
+<arg>role=textbox[name="บ้านเลขที่ / ถนน / ซอย"]</arg>
+<arg>${house_number} หมู่ 5</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:09.333216" elapsed="0.844915"/>
+</kw>
+<kw name="Select Options By" owner="Browser">
+<msg time="2026-10-17T21:28:10.179644" level="INFO">Selects the option(s) 69 by attribute SelectAttribute.value from element css=select[name="province"].</msg>
+<arg>css=select[name="province"]</arg>
+<arg>value</arg>
+<arg>69</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:10.178131" elapsed="0.072757"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-17T21:28:10.582609" level="INFO">Waited for Element with selector css=select[name="district"] &gt;&gt; option[value="912"] at state attached</msg>
+<arg>css=select[name="district"] &gt;&gt; option[value="912"]</arg>
+<arg>attached</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-17T21:28:10.251930" elapsed="0.330679"/>
+</kw>
+<kw name="Select Options By" owner="Browser">
+<msg time="2026-10-17T21:28:10.585498" level="INFO">Selects the option(s) 912 by attribute SelectAttribute.value from element css=select[name="district"].</msg>
+<arg>css=select[name="district"]</arg>
+<arg>value</arg>
+<arg>912</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:10.583966" elapsed="0.047388"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-17T21:28:10.952652" level="INFO">Waited for Element with selector css=select[name="subDistrict"] &gt;&gt; option[value="8129"] at state attached</msg>
+<arg>css=select[name="subDistrict"] &gt;&gt; option[value="8129"]</arg>
+<arg>attached</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-17T21:28:10.631354" elapsed="0.321298"/>
+</kw>
+<kw name="Select Options By" owner="Browser">
+<msg time="2026-10-17T21:28:10.954677" level="INFO">Selects the option(s) 8129 by attribute SelectAttribute.value from element css=select[name="subDistrict"].</msg>
+<arg>css=select[name="subDistrict"]</arg>
+<arg>value</arg>
+<arg>8129</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:10.953664" elapsed="0.037481"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:28:10.992145" level="INFO">Clicks the element 'css=[data-test="btn-save-address"]'.</msg>
+<arg>css=[data-test="btn-save-address"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:10.991145" elapsed="0.145983"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-17T21:28:11.981750" level="INFO">Waited for Element with selector text="เพิ่มที่อยู่สำเร็จ" at state visible</msg>
+<arg>text="เพิ่มที่อยู่สำเร็จ"</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-17T21:28:11.138129" elapsed="0.844619"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-10-17T21:28:11.984746" level="INFO">${expected_count} = 4</msg>
+<var>${expected_count}</var>
+<arg>${count_before} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-10-17T21:28:11.982748" elapsed="0.001998"/>
+</kw>
+<kw name="Get Element Count" owner="Browser">
+<arg>${ADDRESS_ITEM}</arg>
+<arg>==</arg>
+<arg>${expected_count}</arg>
+<arg>timeout=15s</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:11.985748" elapsed="0.133053"/>
+</kw>
+<kw name="Evaluate JavaScript" owner="Browser">
+<msg time="2026-10-17T21:28:12.132806" level="INFO">JavaScript executed successfully.</msg>
+<msg time="2026-10-17T21:28:12.132806" level="INFO">${new_ids} = ['btn-delete-address-572', 'btn-delete-address-563', 'btn-delete-address-561', 'btn-delete-address-559']</msg>
+<var>${new_ids}</var>
+<arg>${None}</arg>
+<arg>${DELETE_BUTTONS_JS}</arg>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Executes the given JavaScript in the browser page.</doc>
+<status status="PASS" start="2026-10-17T21:28:12.118801" elapsed="0.015004"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-10-17T21:28:12.135317" level="INFO">${added_ids} = ['btn-delete-address-572']</msg>
+<var>${added_ids}</var>
+<arg>list(set($new_ids) - set($old_ids))</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-10-17T21:28:12.133805" elapsed="0.001512"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-10-17T21:28:12.136903" level="INFO">Length is 1.</msg>
+<arg>${added_ids}</arg>
+<arg>ไม่พบที่อยู่ที่สร้างใหม่</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-10-17T21:28:12.135317" elapsed="0.001586"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-10-17T21:28:12.138966" level="INFO">${new_address_id} = btn-delete-address-572</msg>
+<var>${new_address_id}</var>
+<arg>$added_ids[0]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-10-17T21:28:12.137961" elapsed="0.001005"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-10-17T21:28:12.140012" level="INFO">${COUNT_BEFORE} = 3</msg>
+<arg>${COUNT_BEFORE}</arg>
+<arg>${count_before}</arg>
+<doc>Makes the variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-10-17T21:28:12.138966" elapsed="0.001046"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2026-10-17T21:28:12.141060" level="INFO">${NEW_ADDRESS_ID} = btn-delete-address-572</msg>
+<arg>${NEW_ADDRESS_ID}</arg>
+<arg>${new_address_id}</arg>
+<doc>Makes the variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2026-10-17T21:28:12.140012" elapsed="0.001048"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:28:03.560766" elapsed="8.580294"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:28:12.143538" level="INFO">Clicks the element 'css=[data-test="btn-delete-address-572"]'.</msg>
+<arg>css=[data-test="${NEW_ADDRESS_ID}"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:12.142138" elapsed="0.078262"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:28:12.221416" level="INFO">Clicks the element 'role=button[name="ยืนยัน"]'.</msg>
+<arg>role=button[name="ยืนยัน"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:12.221416" elapsed="0.569037"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-17T21:28:13.634272" level="INFO">Waited for Element with selector text="ลบที่อยู่สำเร็จ" at state visible</msg>
+<arg>text="ลบที่อยู่สำเร็จ"</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-17T21:28:12.791460" elapsed="0.842812"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-17T21:28:13.648113" level="INFO">Waited for Element with selector css=[data-test="btn-delete-address-572"] at state detached</msg>
+<arg>css=[data-test="${NEW_ADDRESS_ID}"]</arg>
+<arg>detached</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-17T21:28:13.635783" elapsed="0.013841"/>
+</kw>
+<kw name="Get Element Count" owner="Browser">
+<arg>${ADDRESS_ITEM}</arg>
+<arg>==</arg>
+<arg>${COUNT_BEFORE}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:13.650680" elapsed="0.011562"/>
+</kw>
+<kw name="Get Element Count" owner="Browser">
+<arg>text="ค่าเริ่มต้น"</arg>
+<arg>==</arg>
+<arg>1</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:13.663426" elapsed="0.013481"/>
+</kw>
+<kw name="Close Browser With Failure Screenshot" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Take Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-10-17T21:28:13.679524" elapsed="0.000000"/>
+</kw>
+<kw name="Close Browser" owner="Browser">
+<msg time="2026-10-17T21:28:13.839907" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-17T21:28:13.679524" elapsed="0.160383"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:28:13.678415" elapsed="0.161492"/>
+</kw>
+<doc>ตรวจสอบการลบที่อยู่จัดส่งที่ไม่ใช่ค่าเริ่มต้น</doc>
+<tag>TC-008</tag>
+<tag>US-ADDR-04</tag>
+<status status="PASS" start="2026-10-17T21:28:03.543803" elapsed="10.296104"/>
+</test>
+<status status="PASS" start="2026-10-17T21:28:03.525410" elapsed="10.329836"/>
+</suite>
+<suite id="s1-s9" name="TC-009-prevent-last-address-deletion" source="D:\storemate-test\robot\tests\TC-009-prevent-last-address-deletion.robot">
+<test id="s1-s9-t1" name="TC-009-ตรวจสอบการแจ้งเตือนเมื่อพยายามลบที่อยู่เริ่มต้นรายการสุดท้าย" line="13">
+<kw name="Start Browser Session" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-10-17T21:28:13.900576" level="INFO">{"browser": "chromium", "headless": true, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "D:\\storemate-test\\robot\\results\\browser\\traces\\temp\\067f7cdc-fc62-424e-9445-e2acf78733a6"}</msg>
+<msg time="2026-10-17T21:28:14.088683" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":true,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"D:\\storemate-test\\robot\\results\\browser\\traces\\temp\\067f7cdc-fc62-424e-9445-e2acf78733a6"}</msg>
+<arg>chromium</arg>
+<arg>headless=${HEADLESS}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-10-17T21:28:13.899065" elapsed="0.190130"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2026-10-17T21:28:14.092762" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  }
+}</msg>
+<msg time="2026-10-17T21:28:14.113477" level="INFO">Successfully created context. </msg>
+<msg time="2026-10-17T21:28:14.114485" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1280, 'height': 720}}</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-10-17T21:28:14.089707" elapsed="0.024778"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-10-17T21:28:14.256846" level="INFO">Successfully initialized new page object and opened url: about:blank</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-10-17T21:28:14.115995" elapsed="0.141849"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:28:13.898560" elapsed="0.359793"/>
+</kw>
+<kw name="Login With Account">
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-17T21:28:17.383622" level="INFO">Successfully opened URL https://storemate-final.vercel.app/</msg>
+<arg>${BASE_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2026-10-17T21:28:14.259864" elapsed="3.125271"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:28:17.387148" level="INFO">Clicks the element 'css=[data-test="login-btn"]'.</msg>
+<arg>css=[data-test="login-btn"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:17.385135" elapsed="0.102579"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-17T21:28:17.489609" level="INFO">Fills the text 'ployy@gmail.com' in the given field.</msg>
+<arg>css=[data-test="email"]</arg>
+<arg>${email}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:17.487714" elapsed="0.131119"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-17T21:28:17.620831" level="INFO">Fills the text 'Ploy1234' in the given field.</msg>
+<arg>css=[data-test="password"]</arg>
+<arg>${password}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:17.618833" elapsed="0.023344"/>
+</kw>
+<if>
+<branch type="IF" condition="'${submit_method}' == 'Enter'">
+<kw name="Press Keys" owner="Browser">
+<arg>css=[data-test="password"]</arg>
+<arg>Enter</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given key combination into element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:17.644237" elapsed="0.040619"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:28:17.642177" elapsed="0.043681"/>
+</branch>
+<branch type="ELSE">
+<kw name="Click" owner="Browser">
+<arg>css=[data-test="btn-submit"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2026-10-17T21:28:17.686909" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-10-17T21:28:17.685858" elapsed="0.001051"/>
+</branch>
+<status status="PASS" start="2026-10-17T21:28:17.642177" elapsed="0.044732"/>
+</if>
+<arg>${LOGIN_EMAIL}</arg>
+<arg>${LOGIN_PASSWORD}</arg>
+<arg>Enter</arg>
+<status status="PASS" start="2026-10-17T21:28:14.258353" elapsed="3.429667"/>
+</kw>
+<kw name="Go To Address Management">
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:28:17.692557" level="INFO">Clicks the element 'css=[data-test="btn-user-profile"]'.</msg>
+<arg>css=[data-test="btn-user-profile"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:17.691039" elapsed="0.880450"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:28:18.573585" level="INFO">Clicks the element 'css=[data-test="btn-edit-profile"]'.</msg>
+<arg>css=[data-test="btn-edit-profile"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:18.571489" elapsed="0.094935"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:28:18.667440" level="INFO">Clicks the element 'role=button[name="จัดการที่อยู่"]'.</msg>
+<arg>role=button[name="จัดการที่อยู่"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:18.666424" elapsed="0.186413"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:28:17.690038" elapsed="1.163800"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:28:18.855350" level="INFO">Clicks the element 'css=[data-test="btn-delete-address-459"]'.</msg>
+<arg>css=[data-test="btn-delete-address-459"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:18.853838" elapsed="0.908831"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-17T21:28:21.173509" level="INFO">Waited for Element with selector role=status at state visible</msg>
+<arg>role=status</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-17T21:28:19.763679" elapsed="1.409830"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2026-10-17T21:28:21.230495" level="INFO">Text: ['ไม่สามารถลบได้ เนื่องจากต้องมีที่อยู่เริ่มต้นอย่างน้อย 1 รายการ']</msg>
+<msg time="2026-10-17T21:28:21.230495" level="INFO">${status_text} = ไม่สามารถลบได้ เนื่องจากต้องมีที่อยู่เริ่มต้นอย่างน้อย 1 รายการ</msg>
+<var>${status_text}</var>
+<arg>role=status</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:21.174507" elapsed="0.055988"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${status_text}</arg>
+<arg>ไม่สามารถลบได้ เนื่องจากต้องมีที่อยู่เริ่มต้นอย่างน้อย 1 รายการ</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="PASS" start="2026-10-17T21:28:21.231552" elapsed="0.000000"/>
+</kw>
+<kw name="Close Browser With Failure Screenshot" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Take Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-10-17T21:28:21.234381" elapsed="0.001528"/>
+</kw>
+<kw name="Close Browser" owner="Browser">
+<msg time="2026-10-17T21:28:21.366829" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-17T21:28:21.236419" elapsed="0.131451"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:28:21.233858" elapsed="0.134012"/>
+</kw>
+<doc>ตรวจสอบการป้องกันการลบที่อยู่สุดท้ายของผู้ใช้งาน</doc>
+<tag>TC-009</tag>
+<tag>US-ADDR-04</tag>
+<status status="PASS" start="2026-10-17T21:28:13.884620" elapsed="7.484766"/>
+</test>
+<status status="PASS" start="2026-10-17T21:28:13.867938" elapsed="7.515266"/>
+</suite>
+<suite id="s1-s10" name="TC-010-cancel-address-deletion" source="D:\storemate-test\robot\tests\TC-010-cancel-address-deletion.robot">
+<test id="s1-s10-t1" name="TC-010-ตรวจสอบการคงอยู่ของข้อมูลที่อยู่จัดส่งเมื่อยกเลิกการลบ" line="13">
+<kw name="Start Browser Session" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-10-17T21:28:21.440023" level="INFO">{"browser": "chromium", "headless": true, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "D:\\storemate-test\\robot\\results\\browser\\traces\\temp\\b4b3c5f9-ece3-41e1-87c1-14389b5fd907"}</msg>
+<msg time="2026-10-17T21:28:21.625214" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":true,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"D:\\storemate-test\\robot\\results\\browser\\traces\\temp\\b4b3c5f9-ece3-41e1-87c1-14389b5fd907"}</msg>
+<arg>chromium</arg>
+<arg>headless=${HEADLESS}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-10-17T21:28:21.437401" elapsed="0.187813"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2026-10-17T21:28:21.630328" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  }
+}</msg>
+<msg time="2026-10-17T21:28:21.649775" level="INFO">Successfully created context. </msg>
+<msg time="2026-10-17T21:28:21.649775" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1280, 'height': 720}}</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-10-17T21:28:21.627236" elapsed="0.022539"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-10-17T21:28:21.794554" level="INFO">Successfully initialized new page object and opened url: about:blank</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-10-17T21:28:21.651267" elapsed="0.143287"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:28:21.436318" elapsed="0.358236"/>
+</kw>
+<kw name="Login With Account">
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-17T21:28:24.784798" level="INFO">Successfully opened URL https://storemate-final.vercel.app/</msg>
+<arg>${BASE_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2026-10-17T21:28:21.796060" elapsed="2.988738"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:28:24.786251" level="INFO">Clicks the element 'css=[data-test="login-btn"]'.</msg>
+<arg>css=[data-test="login-btn"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:24.786251" elapsed="0.101097"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-17T21:28:24.889358" level="INFO">Fills the text 'num1@gmail.com' in the given field.</msg>
+<arg>css=[data-test="email"]</arg>
+<arg>${email}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:24.887348" elapsed="0.152541"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-17T21:28:25.041944" level="INFO">Fills the text 'Numm1234' in the given field.</msg>
+<arg>css=[data-test="password"]</arg>
+<arg>${password}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:25.040941" elapsed="0.021191"/>
+</kw>
+<if>
+<branch type="IF" condition="'${submit_method}' == 'Enter'">
+<kw name="Press Keys" owner="Browser">
+<arg>css=[data-test="password"]</arg>
+<arg>Enter</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given key combination into element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:25.063128" elapsed="0.046362"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:28:25.063128" elapsed="0.046362"/>
+</branch>
+<branch type="ELSE">
+<kw name="Click" owner="Browser">
+<arg>css=[data-test="btn-submit"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2026-10-17T21:28:25.110008" elapsed="0.001002"/>
+</kw>
+<status status="NOT RUN" start="2026-10-17T21:28:25.110008" elapsed="0.001002"/>
+</branch>
+<status status="PASS" start="2026-10-17T21:28:25.063128" elapsed="0.047882"/>
+</if>
+<arg>${LOGIN_EMAIL}</arg>
+<arg>${LOGIN_PASSWORD}</arg>
+<arg>Enter</arg>
+<status status="PASS" start="2026-10-17T21:28:21.796060" elapsed="3.314950"/>
+</kw>
+<kw name="Go To Address Management">
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:28:25.113517" level="INFO">Clicks the element 'css=[data-test="btn-user-profile"]'.</msg>
+<arg>css=[data-test="btn-user-profile"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:25.112009" elapsed="0.903962"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:28:26.017024" level="INFO">Clicks the element 'css=[data-test="btn-edit-profile"]'.</msg>
+<arg>css=[data-test="btn-edit-profile"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:26.015971" elapsed="0.074827"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:28:26.092912" level="INFO">Clicks the element 'role=button[name="จัดการที่อยู่"]'.</msg>
+<arg>role=button[name="จัดการที่อยู่"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:26.090798" elapsed="0.208774"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:28:25.111010" elapsed="1.189561"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:28:26.301890" level="INFO">Clicks the element 'css=[data-test="btn-delete-address-504"]'.</msg>
+<arg>css=[data-test="btn-delete-address-504"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:26.300571" elapsed="0.903316"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:28:27.205950" level="INFO">Clicks the element 'role=button[name="ยกเลิก"]'.</msg>
+<arg>role=button[name="ยกเลิก"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:27.204949" elapsed="0.648543"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2026-10-17T21:28:27.911528" level="INFO">Text: ['คุณต้องการลบที่อยู่นี้ใช่หรือไม่?\nยืนยัน\nยกเลิก\nเข้าสู่ระบบสำเร็จ\nสินค้า\nโปรโมชั่น\nเกี่ยวกับเรา\nติดต่อ\nหน้าหลัก\nโปรไฟล์\nแก้ไขโปรไฟล์\n\nnumnum\n\nโปรไฟล์ของฉัน\nโปรไฟล์\nจัดการที่อยู่\nเปลี่ยนรหัสผ่าน\nการซื้อของฉัน\nการแจ้งเตือน\nที่อยู่ของฉัน\n+\nเพิ่มที่อยู่ใหม่\nnumnum\n|\n0874563255\nแก้ไข\n|\nลบ\n51 ต.ทะเลทรัพย์ อ.ปะทิว จ.ชุมพร 86160\nค่าเริ่มต้น\nที่อยู่ในการรับสินค้า\nตั้งเป็นค่าเริ่มต้น\nnumnum\n|\n0874563255\nแก้ไข\n|\nลบ\n10/1 หมู่1 ต.บางหลวง อ.บางเลน จ.นครปฐม 73190\nที่อยู่ในการรับสินค้า\nตั้งเป็นค่าเริ่มต้น\nPT\nพัดทอง\n\nผลิตภัณฑ์แปรรูปจากสมุนไพรไทย มะม่วงหาว\nมะนาวโห่คุณภาพสูง เพื่อสุขภาพที่ดีของคุณ\n\nเมนู\nหน้าแรก\nสินค้าทั้งหมด\nโปรโมชั่น\nติดต่อเรา\nติดตามเรา\n© 2026 iTouchong Store สงวนลิขสิทธิ์']</msg>
+<msg time="2026-10-17T21:28:27.912059" level="INFO">${page_text} = คุณต้องการลบที่อยู่นี้ใช่หรือไม่?
+ยืนยัน
+ยกเลิก
+เข้าสู่ระบบสำเร็จ
+สินค้า
+โปรโมชั่น
+เกี่ยวกับเรา
+ติดต่อ
+หน้าหลัก
+โปรไฟล์
+แก้ไขโปรไฟล์
+
+numnum
+
+โปรไฟล์ของฉัน
+โปรไฟล์
+จัดการที่อยู่
+เปลี่ยนรหัสผ่าน
+การซื้...</msg>
+<var>${page_text}</var>
+<arg>css=#root</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:27.854601" elapsed="0.057458"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${page_text}</arg>
+<arg>10/1 หมู่1 ต.บางหลวง อ.บางเลน จ.นครปฐม 73190</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="PASS" start="2026-10-17T21:28:27.913075" elapsed="0.001024"/>
+</kw>
+<kw name="Close Browser With Failure Screenshot" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Take Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-10-17T21:28:27.916313" elapsed="0.001011"/>
+</kw>
+<kw name="Close Browser" owner="Browser">
+<msg time="2026-10-17T21:28:28.076316" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-17T21:28:27.917324" elapsed="0.158992"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:28:27.915109" elapsed="0.161207"/>
+</kw>
+<doc>ตรวจสอบการยกเลิกการลบที่อยู่จัดส่ง</doc>
+<tag>TC-010</tag>
+<tag>US-ADDR-04</tag>
+<status status="PASS" start="2026-10-17T21:28:21.420201" elapsed="6.657177"/>
+</test>
+<status status="PASS" start="2026-10-17T21:28:21.396809" elapsed="6.693666"/>
+</suite>
+<suite id="s1-s11" name="TC-011-change-default-address" source="D:\storemate-test\robot\tests\TC-011-change-default-address.robot">
+<test id="s1-s11-t1" name="TC-011-ตรวจสอบการเปลี่ยนที่อยู่เริ่มต้นและสถานะปุ่มตั้งค่าเริ่มต้น" line="13">
+<kw name="Start Browser Session" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-10-17T21:28:28.143425" level="INFO">{"browser": "chromium", "headless": true, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "D:\\storemate-test\\robot\\results\\browser\\traces\\temp\\3d1c4fc2-2a3d-4a72-a2a0-eb5db5203f8c"}</msg>
+<msg time="2026-10-17T21:28:28.274694" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":true,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"D:\\storemate-test\\robot\\results\\browser\\traces\\temp\\3d1c4fc2-2a3d-4a72-a2a0-eb5db5203f8c"}</msg>
+<arg>chromium</arg>
+<arg>headless=${HEADLESS}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-10-17T21:28:28.141769" elapsed="0.133941"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2026-10-17T21:28:28.282840" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  }
+}</msg>
+<msg time="2026-10-17T21:28:28.298905" level="INFO">Successfully created context. </msg>
+<msg time="2026-10-17T21:28:28.299416" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1280, 'height': 720}}</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-10-17T21:28:28.277747" elapsed="0.021669"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-10-17T21:28:28.433941" level="INFO">Successfully initialized new page object and opened url: about:blank</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-10-17T21:28:28.299928" elapsed="0.134013"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:28:28.139652" elapsed="0.294289"/>
+</kw>
+<kw name="Login With Account">
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-17T21:28:31.380964" level="INFO">Successfully opened URL https://storemate-final.vercel.app/</msg>
+<arg>${BASE_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2026-10-17T21:28:28.436339" elapsed="2.944625"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:28:31.382957" level="INFO">Clicks the element 'css=[data-test="login-btn"]'.</msg>
+<arg>css=[data-test="login-btn"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:31.380964" elapsed="0.111106"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-17T21:28:31.494075" level="INFO">Fills the text 'eyejang1@gmail.com' in the given field.</msg>
+<arg>css=[data-test="email"]</arg>
+<arg>${email}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:31.493070" elapsed="0.151085"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-17T21:28:31.646769" level="INFO">Fills the text 'Eyejang1234' in the given field.</msg>
+<arg>css=[data-test="password"]</arg>
+<arg>${password}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:31.644672" elapsed="0.027812"/>
+</kw>
+<if>
+<branch type="IF" condition="'${submit_method}' == 'Enter'">
+<kw name="Press Keys" owner="Browser">
+<arg>css=[data-test="password"]</arg>
+<arg>Enter</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given key combination into element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:31.674585" elapsed="0.042381"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:28:31.673534" elapsed="0.043432"/>
+</branch>
+<branch type="ELSE">
+<kw name="Click" owner="Browser">
+<arg>css=[data-test="btn-submit"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2026-10-17T21:28:31.716966" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2026-10-17T21:28:31.716966" elapsed="0.001339"/>
+</branch>
+<status status="PASS" start="2026-10-17T21:28:31.672484" elapsed="0.045821"/>
+</if>
+<arg>${LOGIN_EMAIL}</arg>
+<arg>${LOGIN_PASSWORD}</arg>
+<arg>Enter</arg>
+<status status="PASS" start="2026-10-17T21:28:28.436339" elapsed="3.281966"/>
+</kw>
+<kw name="Go To Address Management">
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:28:31.719345" level="INFO">Clicks the element 'css=[data-test="btn-user-profile"]'.</msg>
+<arg>css=[data-test="btn-user-profile"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:31.719345" elapsed="0.882150"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:28:32.602795" level="INFO">Clicks the element 'css=[data-test="btn-edit-profile"]'.</msg>
+<arg>css=[data-test="btn-edit-profile"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:32.601495" elapsed="0.085527"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:28:32.688503" level="INFO">Clicks the element 'role=button[name="จัดการที่อยู่"]'.</msg>
+<arg>role=button[name="จัดการที่อยู่"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:32.687022" elapsed="0.192960"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:28:31.718305" elapsed="1.163052"/>
+</kw>
+<kw name="Get Elements" owner="Browser">
+<msg time="2026-10-17T21:28:33.733177" level="INFO">Found 4 Locators successfully.</msg>
+<msg time="2026-10-17T21:28:33.734177" level="INFO">${default_buttons} = ['css=[data-test="btn-set-default"] &gt;&gt; nth=0', 'css=[data-test="btn-set-default"] &gt;&gt; nth=1', 'css=[data-test="btn-set-default"] &gt;&gt; nth=2', 'css=[data-test="btn-set-default"] &gt;&gt; nth=3']</msg>
+<var>${default_buttons}</var>
+<arg>css=[data-test="btn-set-default"]</arg>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns a list of selector strings, one for each element matched by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:32.881357" elapsed="0.852820"/>
+</kw>
+<kw name="Get Element States" owner="Browser">
+<msg time="2026-10-17T21:28:33.819887" level="INFO">States are: ['attached', 'visible', 'disabled', 'readonly', 'defocused']</msg>
+<msg time="2026-10-17T21:28:33.819887" level="INFO">${first_button_states} = ['attached', 'visible', 'disabled', 'readonly', 'defocused']</msg>
+<var>${first_button_states}</var>
+<arg>${default_buttons}[0]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Get the active states from the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:33.734177" elapsed="0.086708"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${first_button_states}</arg>
+<arg>disabled</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="PASS" start="2026-10-17T21:28:33.820885" elapsed="0.002136"/>
+</kw>
+<kw name="Get Element States" owner="Browser">
+<msg time="2026-10-17T21:28:33.872221" level="INFO">States are: ['attached', 'visible', 'enabled', 'defocused']</msg>
+<msg time="2026-10-17T21:28:33.872221" level="INFO">${second_button_states} = ['attached', 'visible', 'enabled', 'defocused']</msg>
+<var>${second_button_states}</var>
+<arg>${default_buttons}[1]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Get the active states from the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:33.823021" elapsed="0.049200"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${second_button_states}</arg>
+<arg>enabled</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="PASS" start="2026-10-17T21:28:33.873421" elapsed="0.001009"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:28:33.877644" level="INFO">Clicks the element 'css=[data-test="btn-set-default"] &gt;&gt; nth=1'.</msg>
+<arg>${default_buttons}[1]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:33.876612" elapsed="0.071282"/>
+</kw>
+<kw name="Get Element Count" owner="Browser">
+<msg time="2026-10-17T21:28:33.959526" level="INFO">${disabled_button_count} = 1</msg>
+<var>${disabled_button_count}</var>
+<arg>css=[data-test="btn-set-default"]:disabled</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:33.948980" elapsed="0.010546"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2026-10-17T21:28:33.961931" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${disabled_button_count}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2026-10-17T21:28:33.960541" elapsed="0.001390"/>
+</kw>
+<kw name="Close Browser With Failure Screenshot" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Take Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-10-17T21:28:33.964110" elapsed="0.000000"/>
+</kw>
+<kw name="Close Browser" owner="Browser">
+<msg time="2026-10-17T21:28:34.096969" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-17T21:28:33.965174" elapsed="0.131795"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:28:33.962948" elapsed="0.134021"/>
+</kw>
+<doc>ตรวจสอบการเปลี่ยนที่อยู่เริ่มต้นเป็นที่อยู่อื่นที่บันทึกไว้</doc>
+<tag>TC-011</tag>
+<tag>US-ADDR-04</tag>
+<status status="PASS" start="2026-10-17T21:28:28.119123" elapsed="5.979080"/>
+</test>
+<status status="PASS" start="2026-10-17T21:28:28.103370" elapsed="6.008431"/>
+</suite>
+<suite id="s1-s12" name="TC-012-verify-single-default-address" source="D:\storemate-test\robot\tests\TC-012-verify-single-default-address.robot">
+<test id="s1-s12-t1" name="TC-012-ตรวจสอบจำนวนป้ายสถานะที่อยู่เริ่มต้นว่ามีเพียงหนึ่งรายการ" line="13">
+<kw name="Start Browser Session" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-10-17T21:28:34.163061" level="INFO">{"browser": "chromium", "headless": true, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "D:\\storemate-test\\robot\\results\\browser\\traces\\temp\\6409f634-ff38-4b75-8d05-3136da657faf"}</msg>
+<msg time="2026-10-17T21:28:34.322071" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":true,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"D:\\storemate-test\\robot\\results\\browser\\traces\\temp\\6409f634-ff38-4b75-8d05-3136da657faf"}</msg>
+<arg>chromium</arg>
+<arg>headless=${HEADLESS}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-10-17T21:28:34.160929" elapsed="0.161655"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2026-10-17T21:28:34.335376" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  }
+}</msg>
+<msg time="2026-10-17T21:28:34.350951" level="INFO">Successfully created context. </msg>
+<msg time="2026-10-17T21:28:34.351970" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1280, 'height': 720}}</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-10-17T21:28:34.332291" elapsed="0.019679"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-10-17T21:28:34.494400" level="INFO">Successfully initialized new page object and opened url: about:blank</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-10-17T21:28:34.352970" elapsed="0.142428"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:28:34.159893" elapsed="0.335505"/>
+</kw>
+<kw name="Login With Account">
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-17T21:28:37.610936" level="INFO">Successfully opened URL https://storemate-final.vercel.app/</msg>
+<arg>${BASE_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2026-10-17T21:28:34.497401" elapsed="3.114539"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:28:37.614080" level="INFO">Clicks the element 'css=[data-test="login-btn"]'.</msg>
+<arg>css=[data-test="login-btn"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:37.611940" elapsed="0.119455"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-17T21:28:37.733397" level="INFO">Fills the text 'eyejang1@gmail.com' in the given field.</msg>
+<arg>css=[data-test="email"]</arg>
+<arg>${email}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:37.731395" elapsed="0.123595"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-17T21:28:37.857064" level="INFO">Fills the text 'Eyejang1234' in the given field.</msg>
+<arg>css=[data-test="password"]</arg>
+<arg>${password}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:37.856001" elapsed="0.017365"/>
+</kw>
+<if>
+<branch type="IF" condition="'${submit_method}' == 'Enter'">
+<kw name="Press Keys" owner="Browser">
+<arg>css=[data-test="password"]</arg>
+<arg>Enter</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given key combination into element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:37.874368" elapsed="0.040104"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:28:37.874368" elapsed="0.040104"/>
+</branch>
+<branch type="ELSE">
+<kw name="Click" owner="Browser">
+<arg>css=[data-test="btn-submit"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2026-10-17T21:28:37.914472" elapsed="0.001080"/>
+</kw>
+<status status="NOT RUN" start="2026-10-17T21:28:37.914472" elapsed="0.001080"/>
+</branch>
+<status status="PASS" start="2026-10-17T21:28:37.874368" elapsed="0.041184"/>
+</if>
+<arg>${LOGIN_EMAIL}</arg>
+<arg>${LOGIN_PASSWORD}</arg>
+<arg>Enter</arg>
+<status status="PASS" start="2026-10-17T21:28:34.496402" elapsed="3.419150"/>
+</kw>
+<kw name="Go To Address Management">
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:28:37.917064" level="INFO">Clicks the element 'css=[data-test="btn-user-profile"]'.</msg>
+<arg>css=[data-test="btn-user-profile"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:37.917064" elapsed="0.915150"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:28:38.836338" level="INFO">Clicks the element 'css=[data-test="btn-edit-profile"]'.</msg>
+<arg>css=[data-test="btn-edit-profile"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:38.833305" elapsed="0.069528"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-17T21:28:38.904277" level="INFO">Clicks the element 'role=button[name="จัดการที่อยู่"]'.</msg>
+<arg>role=button[name="จัดการที่อยู่"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:38.902833" elapsed="0.151067"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:28:37.916555" elapsed="1.138345"/>
+</kw>
+<kw name="Get Url" owner="Browser">
+<msg time="2026-10-17T21:28:39.061878" level="INFO">${current_url} = https://storemate-final.vercel.app/address-profile</msg>
+<var>${current_url}</var>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the current URL.</doc>
+<status status="PASS" start="2026-10-17T21:28:39.054900" elapsed="0.006978"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${current_url}</arg>
+<arg>${BASE_URL}address-profile</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2026-10-17T21:28:39.062881" elapsed="0.001458"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-17T21:28:39.908525" level="INFO">Waited for Element with selector css=[data-test="address-detail"] &gt;&gt; nth=0 at state visible</msg>
+<arg>css=[data-test="address-detail"] &gt;&gt; nth=0</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-17T21:28:39.065853" elapsed="0.843775"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-17T21:28:39.926701" level="INFO">Waited for Element with selector text="ค่าเริ่มต้น" at state visible</msg>
+<arg>text="ค่าเริ่มต้น"</arg>
+<arg>visible</arg>
+<arg>timeout=10s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-17T21:28:39.909628" elapsed="0.017073"/>
+</kw>
+<kw name="Get Element Count" owner="Browser">
+<msg time="2026-10-17T21:28:39.940348" level="INFO">${default_badge_count} = 1</msg>
+<var>${default_badge_count}</var>
+<arg>text="ค่าเริ่มต้น"</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2026-10-17T21:28:39.927711" elapsed="0.012637"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2026-10-17T21:28:39.942471" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${default_badge_count}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2026-10-17T21:28:39.941470" elapsed="0.001001"/>
+</kw>
+<kw name="Close Browser With Failure Screenshot" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Take Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2026-10-17T21:28:39.946597" elapsed="0.001999"/>
+</kw>
+<kw name="Close Browser" owner="Browser">
+<msg time="2026-10-17T21:28:40.098745" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-17T21:28:39.948596" elapsed="0.151149"/>
+</kw>
+<status status="PASS" start="2026-10-17T21:28:39.945576" elapsed="0.154169"/>
+</kw>
+<doc>ตรวจสอบว่าระบบแสดงที่อยู่เริ่มต้นเพียงรายการเดียว</doc>
+<tag>TC-012</tag>
+<tag>US-ADDR-04</tag>
+<status status="PASS" start="2026-10-17T21:28:34.146199" elapsed="5.953546"/>
+</test>
+<status status="PASS" start="2026-10-17T21:28:34.125648" elapsed="5.987511"/>
+</suite>
+<status status="PASS" start="2026-10-17T21:27:07.747989" elapsed="92.381876"/>
+</suite>
+<statistics>
+<total>
+<stat pass="12" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">TC-001</stat>
+<stat pass="1" fail="0" skip="0">TC-002</stat>
+<stat pass="1" fail="0" skip="0">TC-003</stat>
+<stat pass="1" fail="0" skip="0">TC-004</stat>
+<stat pass="1" fail="0" skip="0">TC-005</stat>
+<stat pass="1" fail="0" skip="0">TC-006</stat>
+<stat pass="1" fail="0" skip="0">TC-007</stat>
+<stat pass="1" fail="0" skip="0">TC-008</stat>
+<stat pass="1" fail="0" skip="0">TC-009</stat>
+<stat pass="1" fail="0" skip="0">TC-010</stat>
+<stat pass="1" fail="0" skip="0">TC-011</stat>
+<stat pass="1" fail="0" skip="0">TC-012</stat>
+<stat pass="1" fail="0" skip="0">US-ADDR-01</stat>
+<stat pass="4" fail="0" skip="0">US-ADDR-02</stat>
+<stat pass="2" fail="0" skip="0">US-ADDR-03</stat>
+<stat pass="5" fail="0" skip="0">US-ADDR-04</stat>
+</tag>
+<suite>
+<stat name="Tests" id="s1" pass="12" fail="0" skip="0">Tests</stat>
+<stat name="TC-001-view-saved-addresses" id="s1-s1" pass="1" fail="0" skip="0">Tests.TC-001-view-saved-addresses</stat>
+<stat name="TC-002-empty-address-list" id="s1-s2" pass="1" fail="0" skip="0">Tests.TC-002-empty-address-list</stat>
+<stat name="TC-003-add-additional-address" id="s1-s3" pass="1" fail="0" skip="0">Tests.TC-003-add-additional-address</stat>
+<stat name="TC-004-address-required-fields" id="s1-s4" pass="1" fail="0" skip="0">Tests.TC-004-address-required-fields</stat>
+<stat name="TC-005-address-dropdown-dependencies" id="s1-s5" pass="1" fail="0" skip="0">Tests.TC-005-address-dropdown-dependencies</stat>
+<stat name="TC-006-edit-existing-address" id="s1-s6" pass="1" fail="0" skip="0">Tests.TC-006-edit-existing-address</stat>
+<stat name="TC-007-default-address-after-edit" id="s1-s7" pass="1" fail="0" skip="0">Tests.TC-007-default-address-after-edit</stat>
+<stat name="TC-008-delete-non-default-address" id="s1-s8" pass="1" fail="0" skip="0">Tests.TC-008-delete-non-default-address</stat>
+<stat name="TC-009-prevent-last-address-deletion" id="s1-s9" pass="1" fail="0" skip="0">Tests.TC-009-prevent-last-address-deletion</stat>
+<stat name="TC-010-cancel-address-deletion" id="s1-s10" pass="1" fail="0" skip="0">Tests.TC-010-cancel-address-deletion</stat>
+<stat name="TC-011-change-default-address" id="s1-s11" pass="1" fail="0" skip="0">Tests.TC-011-change-default-address</stat>
+<stat name="TC-012-verify-single-default-address" id="s1-s12" pass="1" fail="0" skip="0">Tests.TC-012-verify-single-default-address</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
